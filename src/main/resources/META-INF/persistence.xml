@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+    <persistence-unit name="exemplo-jpa" transaction-type="RESOURCE_LOCAL">
+        <properties>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:mysql://localhost/aulajpa?useSSL=false&amp;serverTimezone=UTC" />
+                            <!-- localhost é o local onde o banco de dados esta, pode ser um IP, caso esteja em outro servidor -->
+                            <!-- aulajpa é o nome da base de dados -->
+
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+            <!-- propriedade do driver sql que sera utilizado == com.mysql.jdbc.Driver -->
+
+            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password" value="tolkien23" />
+            <!-- user é o login do banco de dados -->
+            <!-- password é a senha do banco de dados-->
+
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <!-- esta ultima linha diz que o banco sera atualizado sempre que iniciado o programa-->
+
+            <!-- https://docs.jboss.org/hibernate/orm/5.4/javadocs/org/hibernate/dialect/package-summary.html -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
+            <!-- nesta ultima linha define o dialeto do mysql que esta sendo utilizado, tem que ser compativel com ao mysql que se esta utilizando-->
+
+        </properties>
+    </persistence-unit>
+</persistence>
